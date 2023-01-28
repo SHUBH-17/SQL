@@ -2,17 +2,20 @@ https://youtu.be/_u_QYzYZdmE
 
 Crypto Market Algorithms Report 
 --------------------------------------------------------------------------
+--defining CTE : q_vol 
 with q_vol as(
 SELECT
 c.algorithm,
 sum(t.volume) vol,
-datepart(quarter, t.dt) quarters
+datepart(quarter, t.dt) quarters -- deriving quarters column
 from coins c
 join transactions t
 on c.code = t.coin_code
-where YEAR(t.dt) = 2020
+where YEAR(t.dt) = 2020 
 group by c.algorithm,datepart(quarter ,t.dt)   
 )
+
+--dividing CTE quarter-wise so that quarterly transactions can be fetched
 select 
 distinct c.algorithm,
 qv1.vol as transactions_Q1,
