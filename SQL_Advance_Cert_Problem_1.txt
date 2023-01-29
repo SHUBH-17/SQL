@@ -2,7 +2,7 @@ https://youtu.be/_u_QYzYZdmE
 
 Crypto Market Algorithms Report 
 --------------------------------------------------------------------------
---defining CTE : q_vol 
+--defining CTE : q_vol  (ie volume in quarters)
 with q_vol as(
 SELECT
 c.algorithm,
